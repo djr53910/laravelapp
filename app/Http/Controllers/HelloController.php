@@ -5,23 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class HelloController extends Controller
-{
+class HelloController extends Controller {
 
-public function index()
-{
+public function index() {
     $data = [
-        'msg' =>'お名前を入力してください',      
-        ];
-    return view('hello.index', $data);
-}
-
-public function post(Request $request)
-{
-    $msg = $request->msg;
-    $data = [
-        'msg'=>'こんにちは、' . $msg . 'さん！',
+        ['name' => '山田たろう', 'mail' => 'taro@yamda'],
+        ['name' => '田中はなこ', 'mail' => 'hanako@flower'],
+        ['name' => '鈴木さちこ', 'mail' => 'sachico@happy']
     ];
-    return view('hello.index', $data);
-}
+
+    return view('hello.index',['data'=>$data]);
+  }
+
 }
